@@ -6,14 +6,14 @@ class Quote {
   //it sets the text. it sets the author
 
   //one way of doing it
-  // Quote(String text, String author) {
-  //   //this.text means the text inside the class is equal to the text that is coming inside the paranthesis.
-  //   this.text = text;
-  //   this.author = author;
-  // }
+  Quote(String text, String author) {
+    //this.text means the text inside the class is equal to the text that is coming inside the paranthesis.
+    this.text = text;
+    this.author = author;
+  }
 
   //another way of doing it - named parameters
-  Quote({String text, String author});
+  //Quote({String text, String author});
   //this.text means the text inside the class is equal to the text that is coming inside the paranthesis.
 
 }

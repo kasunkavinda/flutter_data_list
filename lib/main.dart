@@ -10,10 +10,33 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   List<Quote> quotes = [
-    Quote(author: 'this is the quote', text: 'shakespier'),
-    Quote(author: 'this is the quote', text: 'shakespier'),
-    Quote(author: 'this is the quote', text: 'shakespier'),
+    Quote('this is the quote', 'shakespier'),
+    Quote('this is the quote', 'shakespier'),
+    Quote('this is the quote', 'shakespier'),
   ];
+
+  Widget quoteCardTemplate(quote) {
+    return Card(
+        margin: EdgeInsets.fromLTRB(16, 16, 16, 0),
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Center(
+                child: Text(quote.text,
+                    style: TextStyle(fontSize: 18, color: Colors.grey[600])),
+              ),
+              SizedBox(height: 6.0),
+              Center(
+                child: Text(quote.author,
+                    style: TextStyle(fontSize: 14, color: Colors.grey[800])),
+              )
+            ],
+          ),
+        ));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,9 +50,7 @@ class _HomeState extends State<Home> {
           elevation: 0,
         ),
         body: Column(
-          children: quotes
-              .map((quote) => Text('${quote.text} - ${quote.author}'))
-              .toList(),
+          children: quotes.map((quote) => quoteCardTemplate(quote)).toList(),
         ));
   }
 }
