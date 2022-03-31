@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'quote.dart';
+import 'quote_card.dart';
 
 void main() => runApp(MaterialApp(home: Home()));
 
@@ -10,32 +11,10 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   List<Quote> quotes = [
-    Quote('this is the quote', 'shakespier'),
-    Quote('this is the quote', 'shakespier'),
-    Quote('this is the quote', 'shakespier'),
+    Quote('this is the quote11', 'shakespier'),
+    Quote('this is the quote22', 'shakespier'),
+    Quote('this is the quote33', 'shakespier'),
   ];
-
-  Widget quoteCardTemplate(quote) {
-    return Card(
-        margin: EdgeInsets.fromLTRB(16, 16, 16, 0),
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              Center(
-                child: Text(quote.text,
-                    style: TextStyle(fontSize: 18, color: Colors.grey[600])),
-              ),
-              SizedBox(height: 6.0),
-              Center(
-                child: Text(quote.author,
-                    style: TextStyle(fontSize: 14, color: Colors.grey[800])),
-              )
-            ],
-          ),
-        ));
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +29,7 @@ class _HomeState extends State<Home> {
           elevation: 0,
         ),
         body: Column(
-          children: quotes.map((quote) => quoteCardTemplate(quote)).toList(),
+          children: quotes.map((quote) => QuoteCard(quote: quote)).toList(),
         ));
   }
 }
